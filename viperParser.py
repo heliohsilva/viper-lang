@@ -10,7 +10,7 @@ else:
 
 def serializedATN():
     return [
-        4,1,15,5,2,0,7,0,1,0,1,0,1,0,0,0,1,0,0,0,3,0,2,1,0,0,0,2,3,5,1,0,
+        4,1,17,5,2,0,7,0,1,0,1,0,1,0,0,0,1,0,0,0,3,0,2,1,0,0,0,2,3,5,1,0,
         0,3,1,1,0,0,0,0
     ]
 
@@ -25,11 +25,11 @@ class viperParser ( Parser ):
     sharedContextCache = PredictionContextCache()
 
     literalNames = [ "<INVALID>", "'`'", "<INVALID>", "'function'", "'procedure'", 
-                     "'='", "'('", "')'", "'out'", "'.'" ]
+                     "'='", "'('", "')'", "'{'", "'}'", "'out'", "'.'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "TIPO", "FUNC", "PROC", 
-                      "ATRTO", "AP", "FP", "WR", "CONCAT", "OPARIT", "OPRELA", 
-                      "ID", "NUM", "WS", "ErrorChar" ]
+                      "ATRTO", "AP", "FP", "AC", "FC", "WR", "CONCAT", "OPARIT", 
+                      "OPRELA", "ID", "NUM", "WS", "ErrorChar" ]
 
     RULE_initial = 0
 
@@ -43,14 +43,16 @@ class viperParser ( Parser ):
     ATRTO=5
     AP=6
     FP=7
-    WR=8
-    CONCAT=9
-    OPARIT=10
-    OPRELA=11
-    ID=12
-    NUM=13
-    WS=14
-    ErrorChar=15
+    AC=8
+    FC=9
+    WR=10
+    CONCAT=11
+    OPARIT=12
+    OPRELA=13
+    ID=14
+    NUM=15
+    WS=16
+    ErrorChar=17
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
