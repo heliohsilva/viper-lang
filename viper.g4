@@ -12,7 +12,7 @@ FC: '}';
 WR: 'out';
 RE: 'in';
 WHILE: 'while';
-IF: 'while';
+IF: 'if';
 CONCAT: '.';
 OPARIT: '/' | '%' | '*' | '+' | '-';
 OPRELA: '==' | '!=' | '>' | '<' | '>=' | '<=';
