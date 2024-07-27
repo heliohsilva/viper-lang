@@ -4,7 +4,8 @@ from antlr4 import *
 from viperLexer import *
 from viperParser import *
 
-''''            (Não será mais utilizado na saída)
+
+
 def getTokenClass():
     with open("viper.tokens", "r") as f:
         idTokenFile = f.readlines()
@@ -27,7 +28,7 @@ def getTokenClass():
     return classTK, idTK
 
 
-'''
+
 
 def main(argv):
     
@@ -35,13 +36,13 @@ def main(argv):
     # A api padrao do antlr para python nao possui nenhum metodo para pegar o a classe do token.
     # o mais proximo disso que ele consegue é o id daquela classe, que seria a "posicao" dela no array de tokens
     # para resolver isso, eu extrai do arquivo viper.tokens, gerado pelo antlr, essa informacao
-    '''
+    
     input_stream = FileStream(argv[1])
 
     lexer = viperLexer(input_stream)
     stream = CommonTokenStream(lexer)
 
-    classTK, idTK = getTokenClass() ----- não será mais utilizado na saída
+    classTK, idTK = getTokenClass() 
 
     tk = lexer.nextToken()
 
@@ -55,7 +56,9 @@ def main(argv):
         lexema = tk.text
 
         print(f"Token: <Classe: {classe} , Lexema:  {lexema} >")
-    '''
+    
+    
+    #Imprimir a árvore sintática
     if len(argv) < 2:
         print("Usage: python main.py <input_file>")
         sys.exit(1)
@@ -67,9 +70,10 @@ def main(argv):
     parser = viperParser(stream)
 
     # Inicia a análise sintática
-    tree = parser.program()  # ou outro ponto de entrada definido na gramática
-    # Imprime a árvore de derivação
+    tree = parser.program()  
     print(tree.toStringTree(recog=parser))
+
+   
    
 
 if __name__ == "__main__":
